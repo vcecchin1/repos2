@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Animation Page</title>
+        <meta charset="utf-8">
+        <meta name="author" content="Verio">
+        <meta name="keywords" content="HTML, CSS, JavaScript">
+        <link rel="stylesheet" href="css/style.css">
+        <style>
+            #container {
+                width: 500px;
+                height: 500px;
+                background: yellow;
+                position: relative;
+                left: 30px;
+            }
+
+            #animation {
+                background: blue;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                bottom: 0; /* Start from the bottom */
+                left: 50%; /* Center horizontally */
+                transform: translateX(-50%); /* Center horizontally */
+            }
+        </style>
+        <script>
+            function myMove() {
+                let pos = 0;
+                let id = null;
+                clearInterval(id);
+                const elem = document.getElementById("animation");
+                id = setInterval(frame, 5);
+                function frame() {
+                    if (pos == 450) {
+                        clearInterval(id);
+                    } else {
+                        pos++;
+                        elem.style.top = (450 - pos) + "px"; // Adjust the calculation
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h1 style="text-align:center;">Welcome to My Site</h1>
+        <div id="container">
+            <div id="animation"></div>
+        </div>
+        <br>
+        <button type="button" onclick="myMove()">Click for Move</button>
+        <section>
+            <form action="action.php" name="frm1" onsubmit="return validateForm()">
+                <label for="fNAME">First Name:</label>
+                <input type="text" name="fname" id="fNAME"><br><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </section>
+        <section>
+            <!-- the section is for test -->
+        </section>
+        <footer>
+            <p>Author: Verio</p> 
+        </footer>
+    </body>
+</html>
